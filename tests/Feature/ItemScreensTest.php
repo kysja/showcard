@@ -5,6 +5,7 @@ use App\Enums\ItemFont;
 use App\Models\Item;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 use Native\Mobile\Events\Alert\ButtonPressed;
 use Native\Mobile\Testing\Native;
 
@@ -368,6 +369,15 @@ it('maps every custom font option to a bundled font file', function () {
         expect(resource_path('fonts/'.config("native-ui.fonts.{$font->value}").'.ttf'))->toBeFile();
     }
 });
+
+it('keeps the android signing credentials out of the app bundle', function (string $key) {
+    expect(Str::is(config('nativephp.cleanup_env_keys'), $key))->toBeTrue();
+})->with([
+    'ANDROID_KEYSTORE_FILE',
+    'ANDROID_KEYSTORE_PASSWORD',
+    'ANDROID_KEY_ALIAS',
+    'ANDROID_KEY_PASSWORD',
+]);
 
 it('has accessible screens', function () {
     $item = Item::factory()->create();

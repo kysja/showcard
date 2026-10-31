@@ -182,6 +182,8 @@ return [
         'GITHUB_*',
         'DO_SPACES_*',
         '*_SECRET',
+        'ANDROID_KEYSTORE_*',
+        'ANDROID_KEY_*',
         'DB_PASSWORD',
         'DB_USERNAME',
     ],
