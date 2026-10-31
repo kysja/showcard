@@ -1,0 +1,33 @@
+{
+    "name": "aulog/screen-orientation",
+    "version": "1.0.0",
+    "description": "Locks the screen to landscape or portrait at runtime",
+    "namespace": "ScreenOrientation",
+    "platforms": [
+        "android"
+    ],
+    "bridge_functions": [
+        {
+            "name": "ScreenOrientation.LockLandscape",
+            "android": "com.aulog.plugins.screen_orientation.ScreenOrientationFunctions.LockLandscape",
+            "description": "Lock the screen to landscape"
+        },
+        {
+            "name": "ScreenOrientation.LockPortrait",
+            "android": "com.aulog.plugins.screen_orientation.ScreenOrientationFunctions.LockPortrait",
+            "description": "Lock the screen to portrait"
+        }
+    ],
+    "android": {
+        "min_version": 26,
+        "permissions": [],
+        "dependencies": {
+            "implementation": []
+        }
+    },
+    "ios": {
+        "min_version": "18.2"
+    },
+    "events": [],
+    "service_provider": "Aulog\\ScreenOrientation\\ScreenOrientationServiceProvider"
+}
